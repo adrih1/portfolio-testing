@@ -89,9 +89,9 @@ const createI18nContent = (t) => {
                     timeframe: 'January 2023 - July 2023',
                     role: 'Internship - Fullstack Developer',
                     achievements: [
-                        <>Refonte du site vitrine d’hélios</>, 
-                        <>Développement d’un simulateur d’empreinte carbone</>, 
-                        <>Migration et maintenance et évolution du blog Wordpress</>,
+                        <>Redesign of the Helios showcase website</>, 
+                        <>Development of a carbon footprint simulator</>, 
+                        <>Migration, maintenance, and evolution of the WordPress blog</>, 
                     ],
                     images: [ ]
                 }
@@ -116,14 +116,26 @@ const createI18nContent = (t) => {
             title: 'Technical skills',
             skills: [
                 {
-                    title: 'Figma',
-                    description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
+                    title: 'React / React Native',
+                    description: <>Used in the development of Wanderlust, a personal project for a mobile app currently under development, creating a dynamic and responsive user interface.</>,
                     images: [
                     ]
                 },
                 {
-                    title: 'Next.js',
-                    description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
+                    title: 'C / C++',
+                    description: <>Applied in solving complex problems at 42, focusing on system-level programming and algorithm optimization.</>,
+                    images: [
+                    ]
+                },
+                {
+                    title: 'Ruby / Ruby On Rails',
+                    description: <>Gained through training at Le Wagon, where I built web applications using Ruby on Rails, emphasizing rapid prototyping and clean, maintainable code.</>,
+                    images: [
+                    ]
+                },
+                {
+                    title: 'Python / Django',
+                    description: <>Utilized in Wanderlust, a personal project for mobile app development, along with building various Python scripts for web scraping tasks.</>,
                     images: [
                     ]
                 }
