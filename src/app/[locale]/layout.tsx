@@ -15,6 +15,8 @@ import { getMessages, getTranslations, unstable_setRequestLocale } from 'next-in
 import { routing } from "@/i18n/routing";
 import { renderContent } from "@/app/resources";
 import { Background, Flex } from "@/once-ui/components";
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 
 export async function generateMetadata(
 	{ params: { locale }}: { params: { locale: string }}
@@ -105,6 +107,7 @@ export default async function RootLayout({
 					secondary ? secondary.variable : '',
 					tertiary ? tertiary.variable : '',
 					code.variable)}>
+				<SpeedInsights />
 				<Flex style={{minHeight: '100vh'}}
 					as="body"
 					fillWidth margin="0" padding="0"
