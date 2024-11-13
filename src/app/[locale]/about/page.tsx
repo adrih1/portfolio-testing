@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 export async function generateMetadata(
     {params: {locale}}: { params: { locale: string }}
 ) {
+    
     const t = await getTranslations();
     const {person, about, social } = renderContent(t);
 	const title = about.title;
@@ -38,6 +39,7 @@ export async function generateMetadata(
 	};
 }
 
+
 export default function About(
     { params: {locale}}: { params: { locale: string }}
 ) {
@@ -66,6 +68,8 @@ export default function About(
             items: about.technical.skills.map(skill => skill.title)
         },
     ]
+
+
     return (
         <Flex
             fillWidth maxWidth="m"
@@ -252,14 +256,16 @@ export default function About(
                                         <Flex
                                             as="ul"
                                             direction="column" gap="16">
-                                            {experience.achievements.map((achievement: string, index: any) => (
+                                            {experience.achievements.map((achievement: JSX.Element, index: number) => (
                                                 <Text
                                                     as="li"
                                                     variant="body-default-m"
-                                                    key={`${experience.company}-${index}`}>
+                                                    key={`${experience.company}-${index}`}
+                                                >
                                                     {achievement}
                                                 </Text>
                                             ))}
+
                                         </Flex>
                                         {experience.images.length > 0 && (
                                             <Flex
