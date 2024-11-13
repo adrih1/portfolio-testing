@@ -1,0 +1,81 @@
+---
+title: "So Long - A 2D Game"
+publishedAt: "2024-05-15"
+summary: "In this project, I developed so_long, a 2D game where the player navigates a character through a maze, collecting items and avoiding obstacles, all while focusing on graphics rendering and event handling."
+images:
+  - "/images/projects/so_long/so_long_cover.png"
+  - "/images/projects/project-01/image-03.jpg"
+team:
+  - name: "Adrien Hors"
+    role: "Software Engineer"
+    avatar: "/images/adrien-avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/adrien-hors1/"
+---
+
+
+# My Experience Building *so_long*: A 2D Game in C
+
+The goal of the project was to create a simple 2D game where the player controls a character navigating a maze, collecting items, and avoiding obstacles. While the project might seem straightforward at first glance, it required a deep understanding of game mechanics, memory management, and graphics rendering, all while working within the constraints of the C programming language.
+
+## The Game Concept
+
+*so_long* is a simple 2D game where the objective is for the player to collect items (referred to as "collectibles") while navigating through a maze-like environment. The game world is made up of a grid, where each cell can represent walls, the player character, collectible items, and an exit.
+
+### Core Gameplay
+
+- **Player Movement**: The player can move the character in four directions: up, down, left, and right. Each movement is restricted by the walls in the maze, and the goal is to find a path to collect all the items and reach the exit.
+  
+- **Collectibles**: These are scattered throughout the map. Once the player collects all items, the exit becomes available to end the game.
+
+- **Exit**: Once all collectibles are collected, the player must find the exit to win the game.
+
+## Setting Up the Game
+
+To bring *so_long* to life, I had to make a few decisions regarding the game environment and the tools I would use. Since this was a solo project and had to be developed in C, I had to choose libraries and methods that were lightweight and suited to the requirements.
+
+### Choosing the Library: MinilibX
+
+For this project, I used **MinilibX**, a graphics library provided by 42, which is designed for simple graphics rendering in C. MinilibX handles window creation, drawing pixels, and managing user inputs, which made it an ideal choice for building a 2D game. While the library might seem basic compared to other modern game engines, it gave me a lot of control over the game’s rendering and interaction.
+
+### The Map and Grid System
+
+The game world in *so_long* is represented as a grid, where each cell has a specific type: a wall, an empty space, a collectible item, or the exit. The map itself is stored in a 2D array of characters, and each character corresponds to a specific type of terrain. I made sure to handle map parsing carefully, ensuring that the game reads the map from a file and creates the correct grid with walls and spaces.
+
+The map was loaded from a `.ber` file, where each character corresponds to:
+- `1`: Wall
+- `0`: Empty space
+- `P`: Player start position
+- `C`: Collectible item
+- `E`: Exit
+
+### Memory Management and Dynamic Allocation
+
+One of the major challenges in this project was managing memory effectively. Since C does not have automatic memory management like some other languages, I had to ensure that memory was allocated and freed correctly to avoid memory leaks. This was particularly important when dealing with dynamic arrays and the grid system.
+
+To keep track of the game’s state, I had to make sure that every element of the game (such as the map, player, and items) was properly managed in memory. I made use of `malloc` and `free` to allocate and deallocate memory when necessary.
+
+## Implementing Game Mechanics
+
+### Player Movement
+
+The core gameplay mechanic in *so_long* is player movement, which needed to be fluid and responsive. I implemented the movement system using keyboard inputs: arrow keys (up, down, left, right) allow the player to move the character across the map. The game updates the screen after each move, and the new player position is reflected in real-time.
+
+### Collision Detection
+
+To prevent the player from moving through walls or out of bounds, I implemented collision detection. This involves checking the next position before allowing the movement. If the next cell in the direction of movement is a wall (`1`), the movement is blocked, and the player cannot move there.
+
+### Collecting Items
+
+When the player moves onto a collectible (`C`), the item is removed from the map, and a counter increases. This is crucial because the player must collect all items before the exit becomes accessible.
+
+### Win Condition
+
+Once all collectibles are collected, the exit (`E`) is unlocked. The player can then move to the exit and finish the game.
+
+### Game Over and Error Handling
+
+The game also includes basic error handling. If the player tries to move out of bounds, if the map is improperly formatted, or if there are memory allocation issues, the game will exit with an appropriate error message.
+
+## Conclusion
+
+*so_long* was a straightforward project that involved core game development concepts such as player movement, collision detection, and memory management. It provided hands-on experience with graphics rendering and the challenges of building a simple 2D game in C.

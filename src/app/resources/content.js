@@ -1,19 +1,19 @@
 import { InlineCode } from "@/once-ui/components";
 
 const person = {
-    firstName: 'Selene',
-    lastName:  'Yu',
+    firstName: 'Adrien',
+    lastName:  'Hors',
     get name() {
         return `${this.firstName} ${this.lastName}`;
     },
-    role:      'Design Engineer',
-    avatar:    '/images/avatar.jpg',
-    location:  'Asia/Jakarta',        // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-    languages: ['English', 'Bahasa']  // optional: Leave the array empty if you don't want to display languages
+    role:      'Software Engineer',
+    avatar:    '/images/adrien-avatar.jpg',
+    location:  'Europe/Paris',        // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+    languages: ['French', 'English', 'Spanish']  // optional: Leave the array empty if you don't want to display languages
 }
 
 const newsletter = {
-    display: true,
+    display: false,
     title: <>Subscribe to {person.firstName}'s Newsletter</>,
     description: <>I occasionally write about design, technology, and share thoughts on the intersection of creativity and engineering.</>
 }
@@ -24,22 +24,17 @@ const social = [
     {
         name: 'GitHub',
         icon: 'github',
-        link: 'https://github.com/once-ui-system/nextjs-starter',
+        link: 'https://github.com/adrih1',
     },
     {
         name: 'LinkedIn',
         icon: 'linkedin',
-        link: 'https://www.linkedin.com/company/once-ui/',
-    },
-    {
-        name: 'X',
-        icon: 'x',
-        link: '',
+        link: 'https://www.linkedin.com/in/adrien-hors1/',
     },
     {
         name: 'Email',
         icon: 'email',
-        link: 'mailto:example@gmail.com',
+        link: 'mailto:adrienhors1@gmail.com',
     },
 ]
 
@@ -47,8 +42,8 @@ const home = {
     label: 'Home',
     title: `${person.name}'s Portfolio`,
     description: `Portfolio website showcasing my work as a ${person.role}`,
-    headline: <>Design engineer and builder</>,
-    subline: <>I'm Selene, a design engineer at <InlineCode>FLY</InlineCode>, where I craft intuitive<br/> user experiences. After hours, I build my own projects.</>
+    headline: <>Sotfware Engineer</>,
+    subline: <>I'm Adrien, a software engineer at <InlineCode>42</InlineCode>. Below are some of the projects I coded.</>
 }
 
 const about = {
@@ -69,36 +64,33 @@ const about = {
     intro: {
         display: true,
         title: 'Introduction',
-        description: <>Selene is a Jakarta-based design engineer with a passion for transforming complex challenges into simple, elegant design solutions. Her work spans digital interfaces, interactive experiences, and the convergence of design and technology.</>
+        description: <>I’m a Paris-based web developer and software enthusiast with a passion for creating robust and elegant digital solutions. After starting my journey in business and completing my studies at ESSEC, I transitioned into tech through an intensive bootcamp at Le Wagon. I’ve since gained experience as a developer at Hélios, and I’m now deepening my expertise at 42.</>
     },
     work: {
         display: true, // set to false to hide this section
         title: 'Work Experience',
         experiences: [
             {
-                company: 'FLY',
-                timeframe: '2022 - Present',
-                role: 'Senior Design Engineer',
+                company: 'Wanderlust',
+                timeframe: '2023 - Present',
+                role: 'Lead Front Dev Developer',
                 achievements: [
-                    <>Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user engagement and 30% faster load times.</>,
-                    <>Spearheaded the integration of AI tools into design workflows, enabling designers to iterate 50% faster.</>
+                    <>UX/UI Collaboration</>,
+                    <>Architecting Front-End Solutions</>,
+                    <>Code Quality and Standards</>,
+                    <>Testing and Debugging</>,
                 ],
                 images: [ // optional: leave the array empty if you don't want to display images
-                    {
-                        src: '/images/projects/project-01/cover-01.jpg',
-                        alt: 'Once UI Project',
-                        width: 16,
-                        height: 9
-                    }
                 ]
             },
             {
-                company: 'Creativ3',
-                timeframe: '2018 - 2022',
-                role: 'Lead Designer',
+                company: 'Hélios',
+                timeframe: 'January 2023 - July 2023',
+                role: 'Internship - Fullstack Developer',
                 achievements: [
-                    <>Developed a design system that unified the brand across multiple platforms, improving design consistency by 40%.</>,
-                    <>Led a cross-functional team to launch a new product line, contributing to a 15% increase in overall company revenue.</>
+                    <>Refonte du site vitrine d’hélios</>, 
+                    <>Développement d’un simulateur d’empreinte carbone</>, 
+                    <>Migration et maintenance et évolution du blog Wordpress</>,
                 ],
                 images: [ ]
             }
@@ -109,11 +101,11 @@ const about = {
         title: 'Studies',
         institutions: [
             {
-                name: 'University of Jakarta',
+                name: 'École 42',
                 description: <>Studied software engineering.</>,
             },
             {
-                name: 'Build the Future',
+                name: 'ESSEC - Global BBA',
                 description: <>Studied online marketing and personal branding.</>,
             }
         ]
@@ -126,30 +118,12 @@ const about = {
                 title: 'Figma',
                 description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
                 images: [
-                    {
-                        src: '/images/projects/project-01/cover-02.jpg',
-                        alt: 'Project image',
-                        width: 16,
-                        height: 9
-                    },
-                    {
-                        src: '/images/projects/project-01/cover-03.jpg',
-                        alt: 'Project image',
-                        width: 16,
-                        height: 9
-                    },
                 ]
             },
             {
                 title: 'Next.js',
                 description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
                 images: [
-                    {
-                        src: '/images/projects/project-01/cover-04.jpg',
-                        alt: 'Project image',
-                        width: 16,
-                        height: 9
-                    },
                 ]
             }
         ]

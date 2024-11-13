@@ -1,0 +1,95 @@
+---
+title: "Cub3D - A 3D Game"
+publishedAt: "2024-10-28"
+summary: "In this project, we developed Cub3D, a 3D game engine inspired by Wolfenstein 3D"
+images:
+  - "/images/projects/cub3d/cover.png"
+team:
+  - name: "Adrien Hors"
+    role: "Software Engineer"
+    avatar: "/images/adrien-avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/adrien-hors1/"
+  - name: "Edouard Baillot"
+    role: "Software Engineer"
+    avatar: "/images/avatar-02.jpeg"
+    linkedIn: "https://www.linkedin.com/in/edouard-baillot/"
+---
+
+[Click here to see the code](https://github.com/adrih1/cub3d)
+
+# Building *Cub3D*: A 3D Game Engine Inspired by *Wolfenstein 3D*
+
+*Cub3D* is a 3D game engine project based on raycasting, designed as an introduction to graphical programming and game development at 42. The objective was to create a simple first-person environment where the player can move through a 3D-rendered maze, inspired by the mechanics of *Wolfenstein 3D*.
+
+In this project, Edouard focused on parsing the map and configuration files, while I implemented the raycasting engine, player movement, and camera mechanics.
+
+## The Game Objective
+
+The goal of *Cub3D* was to simulate a 3D world using a 2D map, where:
+- The player navigates through a maze from a first-person perspective.
+- Walls, textures, and player movements are rendered dynamically in real time.
+- The game uses raycasting to project a pseudo-3D view based on a 2D grid.
+
+The game requires parsing a `.cub` configuration file to generate the map, which is then rendered as a 3D environment.
+
+## Division of Responsibilities
+
+### Edouard: Map and Configuration Parsing
+
+Edouard handled the following aspects:
+- **Map Parsing**: Ensuring the map, stored in a `.cub` file, was valid, well-structured, and surrounded by walls.
+- **Error Handling**: Verifying that required elements (e.g., player start position, textures, and colors) were correctly defined.
+- **Data Loading**: Loading textures and floor/ceiling colors specified in the configuration file for use in the rendering process.
+
+### Myself: Raycasting and Gameplay
+
+I was responsible for implementing the core gameplay mechanics, including:
+- **Raycasting Engine**: Using raycasting to calculate the distance to walls from the player's perspective and render the 3D environment.
+- **Player Movement**: Allowing the player to move smoothly forward, backward, and sideways while detecting collisions with walls.
+- **Camera Rotation**: Implementing camera controls to simulate looking left or right, enabling a full first-person experience.
+- **Rendering Optimization**: Ensuring efficient rendering by minimizing redundant calculations and focusing only on visible parts of the scene.
+
+## Key Components
+
+### Map Representation
+
+The map is stored as a 2D grid, where each cell represents:
+- `1`: A wall.
+- `0`: Empty space.
+- `N`, `S`, `E`, `W`: The player’s starting position and initial orientation.
+
+The map is parsed from a `.cub` file, which also specifies textures for the walls and colors for the floor and ceiling.
+
+### Raycasting Basics
+
+Raycasting is the core algorithm behind *Cub3D*. It involves:
+1. **Casting Rays**: From the player's position, rays are cast at regular intervals to detect the first wall in each direction.
+2. **Calculating Distances**: The distance to each wall is used to determine the height of the wall on the screen (closer walls appear taller).
+3. **Rendering Textures**: Once distances are calculated, textures are mapped onto the walls for realism.
+
+### Player and Camera Mechanics
+
+The player can:
+- Move forward, backward, and sideways with collision detection to prevent passing through walls.
+- Rotate the camera to look around, which is achieved by adjusting the raycasting angles dynamically.
+
+### Graphics and Rendering
+
+The game uses the MinilibX library for rendering, which provides simple tools to:
+- Open a window.
+- Draw pixels, lines, and textures.
+- Capture user inputs (keyboard and mouse).
+
+## Challenges and Solutions
+
+### Handling Large Maps
+
+Parsing large maps required careful memory management to ensure the grid was correctly allocated and deallocated. Edouard implemented checks to ensure all maps were valid and properly bounded by walls.
+
+### Precision in Raycasting
+
+Raycasting required high precision to avoid graphical glitches (e.g., "holes" between walls). I implemented fixes for floating-point rounding errors to ensure walls rendered seamlessly.
+
+## Conclusion
+
+*Cub3D* was a fascinating project that combined low-level programming with graphical and gameplay mechanics. By dividing responsibilities, Edouard and I were able to tackle the challenges of parsing and rendering efficiently. This project provided a strong foundation in game development and real-time rendering, and it deepened our understanding of graphics programming.

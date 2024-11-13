@@ -1,0 +1,62 @@
+---
+title: "Minishell"
+publishedAt: "2024-10-01"
+summary: "In this project, we developed a custom Unix shell, Minishell, focusing on parsing user input and executing commands, while handling features like piping, redirection, and process management."
+images:
+  - "/images/projects/minishell/minishell.jpg"
+team:
+  - name: "Adrien Hors"
+    role: "Software Engineer"
+    avatar: "/images/adrien-avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/adrien-hors1/"
+  - name: "Edouard Baillot"
+    role: "Software Engineer"
+    avatar: "/images/avatar-02.jpeg"
+    linkedIn: "https://www.linkedin.com/in/edouard-baillot/"
+---
+
+[Click here to see the code](https://github.com/Illouminus/Minishell)
+
+# Building our "Minishell" at 42
+
+The goal of Minishell is to create a functional Unix shell that can parse and execute commands, supporting features like pipes, redirections, and environment variables.
+
+Our roles in the project were complementary, with Edouard handling the execution part, and I focusing on parsing. Here’s a closer look at what we have done. 
+
+## Parsing
+
+As the person responsible for parsing, my role was to design a system capable of interpreting user input. The shell needs to accept commands, arguments, and options, and then pass them on to be executed. 
+
+The challenge here was to make the parsing as accurate and flexible as possible while managing edge cases like special characters (e.g., pipes, redirections, and quotes).
+
+To tackle this, I created a parser that could handle:
+
+- **Tokenization**: Breaking the input string into meaningful components (tokens).
+
+- **Handling spaces and quotes**: Arguments enclosed in quotes were treated as a single token.
+
+- **Special characters**: Properly managing operators like `|`, `>`, `<`.
+
+
+## Execution: Bringing Commands to Life
+
+Once the input was parsed, Edouard ensured that the shell could:
+- **Fork processes**: Create child processes for each command.
+- **Execute binaries**: Locate and run the appropriate programs for each command, managing the execution flow.
+- **Redirection and piping**: Properly set up input and output redirection, as well as piping between commands to ensure that outputs from one command could serve as inputs to the next.
+- **Handling errors**: Gracefully managing any errors that could occur during execution, such as when a command is not found or when there's an issue with permissions.
+
+This part of the project required to understand system calls such as `fork()`, `exec()`, and `waitpid()`, and the ability to handle various signal operations that are essential for controlling processes in a Unix-like environment.
+
+## Collaboration: A Synergy of Parsing and Execution
+
+Although we each had distinct roles, collaboration was key to the success of the project. The parser had to anticipate how commands would be structured for Edouard’s execution process, and he had to make sure the execution side could handle the output of the parser in a way that was reliable and efficient.
+
+The project also pushed us to handle unexpected scenarios, such as when the user enters malformed commands or tries to execute a program that doesn’t exist. This required both us to implement detailed error messages that would help the user troubleshoot, while ensuring that the shell would never crash unexpectedly.
+
+## Conclusion
+
+Building *Minishell* was a challenging and rewarding experience that pushed us to understand the inner workings of a shell from both a parsing and execution standpoint. 
+
+It was a fantastic opportunity to improve our knowledge of system programming, process management, and Unix fundamentals. In the end, we were able to build a functioning shell that could handle a variety of commands, including piping, redirection, and background jobs, all while giving us a deeper appreciation for the complexities of operating system interfaces. 
+
